@@ -1,0 +1,80 @@
+.root {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 55rem;
+  color: #fff;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .root {
+    height: 90rem;
+  }
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Oversized + offset so the scroll parallax never exposes an edge. */
+.bgImg {
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+}
+
+.tint {
+  position: absolute;
+  inset: 0;
+  background: rgba(21, 23, 23, 0.35);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 3rem;
+  letter-spacing: -0.01em;
+}
+@media (min-width: 768px) {
+  .title {
+    font-size: 7.2rem;
+  }
+}
+
+/*
+ * Each line of the heading is its own block, and line-height is looser than the
+ * reference's plain-text 1.15: wordsReveal's word masks (SplitText) render taller
+ * than the text itself (0.15em overscan padding per word, top+bottom, for reveal
+ * breathing room), which crowds adjacent lines at a tight line-height -- whether
+ * they're two sibling lines or one line wrapping to two on narrow viewports. The
+ * extra line-height absorbs that overscan so it never touches real glyph ink.
+ */
+.line {
+  display: block;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.actions {
+  margin-top: 3rem;
+}
+@media (min-width: 768px) {
+  .actions {
+    margin-top: 3.9rem;
+  }
+}

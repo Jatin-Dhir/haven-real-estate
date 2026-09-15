@@ -1,0 +1,96 @@
+.root {
+  position: relative;
+}
+
+.grid {
+  display: grid;
+  gap: 3rem;
+}
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 97.6rem;
+    align-items: start;
+    gap: 4rem;
+  }
+}
+
+/* Thumbnail: DOM-first (mobile order), pushed after the text column on desktop. */
+.thumbnail {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 365 / 250;
+}
+@media (min-width: 768px) {
+  .thumbnail {
+    order: 2;
+    aspect-ratio: 976 / 450;
+  }
+}
+
+.thumbnailImg {
+  transition: transform 0.7s var(--ease-out-expo);
+  transform-origin: center;
+}
+@media (pointer: fine) {
+  .root:hover .thumbnailImg {
+    transform: scale(1.06);
+  }
+}
+
+.textCol {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+@media (min-width: 768px) {
+  .textCol {
+    order: 1;
+  }
+}
+
+.date {
+  margin: 0 0 3rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+@media (min-width: 768px) {
+  .date {
+    margin-bottom: 6.9rem;
+    font-size: 2rem;
+  }
+}
+
+.title {
+  font-weight: 500;
+  font-size: 2.2rem;
+  line-height: 1.15;
+}
+@media (min-width: 768px) {
+  .title {
+    font-size: 4.4rem;
+    letter-spacing: -0.02em;
+  }
+}
+
+.excerpt {
+  margin: 1.5rem 0 0;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+@media (min-width: 768px) {
+  .excerpt {
+    margin-top: 2.4rem;
+  }
+}
+
+.action {
+  margin-top: 3rem;
+}
+@media (min-width: 768px) {
+  .action {
+    margin-top: 4rem;
+  }
+}

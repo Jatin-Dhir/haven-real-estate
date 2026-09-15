@@ -1,0 +1,111 @@
+/* 12-column form grid + underlined field controls, shared by every modal form. */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2.8rem 2.4rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    gap: 3.6rem 3rem;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  grid-column: 1 / -1;
+}
+
+.half {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 768px) {
+  .half {
+    grid-column: span 6;
+  }
+  .full {
+    grid-column: 1 / -1;
+  }
+}
+
+.label {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-text-50);
+}
+
+.required {
+  margin-left: 0.2rem;
+}
+
+.controlWrap {
+  position: relative;
+}
+
+.control {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color-line-strong);
+  border-radius: 0;
+  padding: 0.9rem 0 1.1rem;
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-text);
+  appearance: none;
+  transition: border-color 0.3s;
+}
+
+.control::placeholder {
+  color: var(--color-muted);
+  opacity: 1;
+}
+
+.control:focus {
+  outline: none;
+  border-color: #000;
+}
+
+.control[aria-invalid="true"] {
+  border-color: #d33;
+}
+
+textarea.control {
+  resize: none;
+  min-height: 3.6em;
+}
+
+select.control {
+  padding-right: 2.8rem;
+  cursor: pointer;
+}
+
+/* Hide the native arrow so our own chevron shows instead */
+select.control::-ms-expand {
+  display: none;
+}
+
+.chevron {
+  position: absolute;
+  right: 0;
+  top: 0.9rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  color: var(--color-text);
+  pointer-events: none;
+}
+
+.error {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #d33;
+}

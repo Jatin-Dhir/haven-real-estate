@@ -1,0 +1,71 @@
+.root {
+  padding: 4rem 0;
+}
+@media (min-width: 768px) {
+  .root {
+    padding: 15rem 0;
+  }
+}
+
+.title {
+  margin: 0 0 4rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .title {
+    margin: 0 auto 8rem;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* Chevron tile: a right-pointing arrow band cut with clip-path. Tiles overlap
+   via a negative margin so the point of one nests into the notch of the next. */
+.tile {
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+  width: 9.3rem;
+  height: 11.8rem;
+  background: var(--color-light);
+  clip-path: polygon(0% 0%, 64% 0%, 100% 50%, 64% 100%, 0% 100%, 36% 50%);
+}
+.tile:not(:first-child) {
+  margin-left: -1.9rem;
+}
+@media (min-width: 768px) {
+  .tile {
+    width: 34.6rem;
+    height: 44rem;
+  }
+  .tile:not(:first-child) {
+    margin-left: -7rem;
+  }
+}
+
+/* Parallax target: taller than the tile so it can drift without exposing edges. */
+.tileImg {
+  position: absolute;
+  left: 0;
+  top: -15%;
+  width: 100%;
+  height: 130%;
+  object-fit: cover;
+}
+
+.text {
+  margin: 4rem auto 0;
+  max-width: 58rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .text {
+    margin-top: 8rem;
+    max-width: 81rem;
+    text-wrap: balance;
+  }
+}

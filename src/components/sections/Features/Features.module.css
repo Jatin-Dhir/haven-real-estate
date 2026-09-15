@@ -1,0 +1,156 @@
+.root {
+  overflow: hidden;
+  background: var(--color-dark);
+  padding: 4rem 0 6rem;
+}
+@media (min-width: 768px) {
+  .root {
+    padding: 15rem 0;
+  }
+}
+
+/* ── header ───────────────────────────────────────────────────────────── */
+
+.hgrid {
+  display: grid;
+  align-items: start;
+  gap: 4rem;
+}
+@media (min-width: 768px) {
+  .hgrid {
+    grid-template-columns: auto 97.6rem;
+  }
+}
+
+.title {
+  font-size: 4.4rem;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+@media (min-width: 768px) {
+  .title {
+    font-size: 7.2rem;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+}
+
+.text {
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+@media (min-width: 768px) {
+  .text {
+    font-size: 3.2rem;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+  }
+}
+
+.action {
+  margin: 3rem 0 0;
+}
+@media (min-width: 768px) {
+  .action {
+    margin: 4rem 0 0;
+  }
+}
+
+/* ── cards ────────────────────────────────────────────────────────────── */
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin: 6rem 0 0;
+}
+@media (min-width: 768px) {
+  .items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin: 10rem 0 0;
+  }
+}
+
+.item {
+  position: relative;
+  overflow: hidden;
+  min-height: 40rem;
+  padding: 3rem;
+}
+@media (min-width: 768px) {
+  .item {
+    height: 47rem;
+    min-height: 0;
+    padding: 5rem;
+  }
+}
+
+.cardBg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.cardImg {
+  transition: transform 0.7s var(--ease-out-expo);
+}
+@media (pointer: fine) {
+  .item:hover .cardImg,
+  .item:focus-within .cardImg {
+    transform: scale(1.06);
+  }
+}
+
+.cardGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(21, 23, 23, 0.1), rgba(21, 23, 23, 0.75));
+  pointer-events: none;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cardTitle {
+  max-width: 80%;
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+@media (min-width: 768px) {
+  .cardTitle {
+    max-width: 34.5rem;
+    font-size: 4.4rem;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+}
+
+.cardText {
+  margin-top: 1.5rem;
+  max-width: 34.5rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+@media (min-width: 768px) {
+  .cardText {
+    margin-top: 4rem;
+    font-size: 2rem;
+  }
+}
+
+.cardAction {
+  margin-top: auto;
+  padding-top: 2rem;
+}

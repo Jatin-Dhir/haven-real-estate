@@ -1,0 +1,111 @@
+.root {
+  background: var(--color-light);
+  padding: 6rem 0;
+}
+@media (min-width: 768px) {
+  .root {
+    padding: 15rem 0;
+  }
+}
+
+/* Asymmetric header: label/title left, lead copy + cta right (fixed 97.6rem col on desktop). */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+  }
+}
+
+.titleCol {
+  min-width: 0;
+}
+@media (min-width: 768px) {
+  .titleCol {
+    flex: 1 1 0%;
+  }
+}
+
+.copyCol {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .copyCol {
+    flex: 0 0 97.6rem;
+  }
+}
+
+.title {
+  font-weight: 500;
+  font-size: 4.4rem;
+  letter-spacing: -0.02em;
+}
+@media (min-width: 768px) {
+  .title {
+    font-size: 8rem;
+    letter-spacing: -0.04em;
+  }
+}
+
+/*
+ * Each line is its own block instead of a <br/> inside one line box, with a looser
+ * line-height than the reference's tight 1/1.05: wordsReveal's word masks (SplitText)
+ * paint taller than the text itself (0.15em overscan padding per word, top+bottom,
+ * for reveal breathing room), which crowds adjacent lines at a tight line-height.
+ * The extra line-height absorbs that overscan so it never touches real glyph ink.
+ */
+.line {
+  display: block;
+  line-height: 1;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 2.2rem;
+  line-height: 1.15;
+}
+@media (min-width: 768px) {
+  .text {
+    font-size: 3.2rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+}
+
+.actions {
+  margin-top: 3rem;
+}
+@media (min-width: 768px) {
+  .actions {
+    margin-top: 4rem;
+  }
+}
+
+/* Entries: hairline above the first, one under each (post-entry owns its own top border). */
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  margin: 4rem 0 0;
+}
+@media (min-width: 768px) {
+  .items {
+    gap: 0;
+    margin-top: 8rem;
+    border-bottom: 1px solid var(--color-line);
+  }
+}
+
+.item {
+  min-width: 0;
+}
+@media (min-width: 768px) {
+  .item {
+    border-top: 1px solid var(--color-line);
+    padding: 3rem 0;
+  }
+}

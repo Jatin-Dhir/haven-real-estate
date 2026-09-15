@@ -1,0 +1,70 @@
+.root {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 100;
+  width: 34rem;
+  margin-top: 1rem;
+  padding: 2rem 0;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  animation: appear 0.3s var(--ease-out-expo) both;
+}
+
+/* Invisible bridge across the 1rem gap so the pointer never leaves the trigger group
+   on its way down to the panel. */
+.panel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1rem;
+  height: 1rem;
+}
+
+.item {
+  display: block;
+  padding: 2rem 3.2rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1;
+  color: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+@media (min-width: 768px) {
+  .item {
+    font-size: 2rem;
+  }
+}
+
+.item:hover {
+  background-color: #ededed;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.disabled:hover {
+  background-color: transparent;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

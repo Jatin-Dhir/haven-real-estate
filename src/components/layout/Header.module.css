@@ -1,0 +1,99 @@
+.wrapper {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background-color: #fff;
+  transition: background-color 0.3s, transform 0.3s ease-in-out;
+}
+
+/* Over a full-bleed hero the bar is invisible until the page has been scrolled. */
+.transparent:not(.fixed):not(.opened) {
+  background-color: transparent;
+}
+
+.hidden {
+  transform: translateY(-100%);
+}
+
+/* An open dropdown or burger pins the bar and makes it opaque. `transform` is dropped
+   from the transition so the header never becomes a containing block for the fixed
+   burger panel mid-animation. */
+.opened {
+  background-color: #fff;
+  transform: none;
+  transition: background-color 0.3s;
+}
+
+.content {
+  position: relative;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  min-height: 8.4rem;
+  color: var(--color-dark);
+}
+
+@media (min-width: 768px) {
+  .content {
+    grid-template-columns: 25rem 1fr 25rem;
+    min-height: 7.8rem;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+}
+
+.logo svg {
+  width: auto;
+  height: 2.6rem;
+}
+
+.nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.actions {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+.burgerControl {
+  justify-self: end;
+}
+
+@media (min-width: 768px) {
+  .burgerControl {
+    display: none !important;
+  }
+}

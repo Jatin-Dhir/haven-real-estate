@@ -1,0 +1,125 @@
+/* ForAgents — asymmetric grid: quiet label + small portrait photo (desktop only) on the
+   left, heading / landscape photo / closing statement on the right. Measurements taken
+   from ref/css-modules/for-agents.css + assymetric-image-split.css + assymetric-cols.css
+   at a 1280 desktop viewport (never copied verbatim — original class names + rules). */
+
+.root {
+  padding: 6rem 0;
+}
+@media (min-width: 768px) {
+  .root {
+    padding: 15rem 0;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+@media (min-width: 768px) {
+  .row {
+    flex-direction: row;
+  }
+}
+
+.left {
+  display: none;
+}
+@media (min-width: 768px) {
+  .left {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}
+
+.label {
+  margin: 0;
+}
+
+.smallImg {
+  position: relative;
+  overflow: hidden;
+  width: 36.4rem;
+  max-width: 100%;
+  aspect-ratio: 364 / 431;
+  margin-top: 48rem;
+}
+
+.smallImgEl {
+  object-fit: cover;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  min-width: 0;
+}
+@media (min-width: 768px) {
+  .right {
+    flex: 0 0 97.6rem;
+    gap: 8rem;
+  }
+}
+
+.heading {
+  margin: 0;
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+@media (min-width: 768px) {
+  .heading {
+    font-size: 7.2rem;
+    letter-spacing: -0.04em;
+  }
+}
+
+.imgFrame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 365 / 450;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+@media (min-width: 768px) {
+  .imgFrame {
+    aspect-ratio: 976 / 688;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.imgInner {
+  position: absolute;
+  left: 0;
+  top: -15%;
+  width: 100%;
+  height: 130%;
+}
+
+.imgEl {
+  object-fit: cover;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  margin: 0;
+}
+
+.ctaWrap {
+  margin-top: 3rem;
+}
+@media (min-width: 768px) {
+  .ctaWrap {
+    margin-top: 4rem;
+  }
+}

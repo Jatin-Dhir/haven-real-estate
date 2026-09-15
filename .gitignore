@@ -1,0 +1,19 @@
+node_modules
+.next
+out
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+.env*.local
+
+# Editor / tooling state (keep only the dev-server launch config)
+.claude/*
+!.claude/launch.json
+
+# Unrelated work that happens to share this folder — not part of the HAVEN site
+/assets
+/design
+/prototype
+/prototype-v3
+/publish
+/amoha-group-landing.html

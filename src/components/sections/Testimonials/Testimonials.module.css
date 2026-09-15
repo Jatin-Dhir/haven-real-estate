@@ -1,0 +1,232 @@
+/* Testimonials — light section: heading, a framed photo, and a Swiper carousel of
+   quotes behind a numbered pagination row + a closing-quote mark. Measurements taken
+   from ref/css-modules/testimonials.css + probe-summary.txt at a 1440 desktop viewport
+   (never copied verbatim — original class names, markup and rules). */
+
+.root {
+  background: var(--color-light);
+  padding: 6rem 0;
+}
+@media (min-width: 768px) {
+  .root {
+    padding: 15rem 0;
+  }
+}
+
+.title {
+  margin: 0 0 4rem;
+}
+@media (min-width: 768px) {
+  .title {
+    margin: 0 0 10rem;
+  }
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+@media (min-width: 768px) {
+  .grid {
+    display: grid;
+    grid-template-columns: auto 65.2rem;
+    align-items: start;
+    gap: 9.2rem;
+  }
+}
+
+.textCol {
+  min-width: 0;
+}
+
+.photoCol {
+  min-width: 0;
+}
+@media (min-width: 768px) {
+  .photoCol {
+    order: -1;
+  }
+}
+
+.divider {
+  border-top: 1px solid var(--color-dark);
+}
+
+.paginationRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+  margin-top: 3rem;
+}
+@media (min-width: 768px) {
+  .paginationRow {
+    margin-top: 5rem;
+  }
+}
+
+.bullets {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+  /* Swiper's own stylesheet injects `swiper-pagination-bullets`/`-horizontal` modifier
+     classes onto whatever element `pagination.el` points to, which carries an unwanted
+     `width: 100%` for the default bottom-of-slider layout. Reclaim the box so the bullets
+     only take the width they need and the quote glyph can share the row. */
+  width: auto !important;
+  position: static !important;
+}
+
+.bullets :global(.swiper-pagination-bullet) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  margin: 0 !important;
+  border-radius: 50%;
+  border: 1px solid var(--color-muted);
+  color: var(--color-muted);
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1;
+  background: none;
+  cursor: pointer;
+  transition: color 0.3s, border-color 0.3s, transform 0.3s;
+}
+@media (min-width: 768px) {
+  .bullets :global(.swiper-pagination-bullet) {
+    width: 4.6rem;
+    height: 4.6rem;
+    font-size: 1.6rem;
+  }
+}
+@media (pointer: fine) {
+  .bullets :global(.swiper-pagination-bullet):hover {
+    border-color: var(--color-dark);
+    color: var(--color-dark);
+  }
+}
+.bullets :global(.swiper-pagination-bullet-active) {
+  border-color: var(--color-dark);
+  color: var(--color-dark);
+  cursor: default;
+}
+
+.quoteGlyph {
+  flex-shrink: 0;
+  width: 3.7rem;
+  height: 3.7rem;
+  color: var(--color-dark);
+}
+@media (min-width: 768px) {
+  .quoteGlyph {
+    width: 4.9rem;
+    height: 4.9rem;
+  }
+}
+
+.carousel {
+  margin-top: 4rem;
+}
+@media (min-width: 768px) {
+  .carousel {
+    margin-top: 5rem;
+  }
+}
+
+.slide {
+  min-height: 34rem;
+}
+@media (min-width: 768px) {
+  .slide {
+    min-height: 24rem;
+  }
+}
+
+.quote {
+  margin: 0;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem 0;
+  margin-top: 3rem;
+}
+@media (min-width: 768px) {
+  .info {
+    margin-top: 5rem;
+  }
+}
+
+.author {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  .author {
+    font-size: 1.8rem;
+  }
+}
+
+.sep {
+  margin: 0 2rem;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+@media (min-width: 768px) {
+  .sep {
+    margin: 0 3rem;
+    font-size: 1.8rem;
+  }
+}
+
+.stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.star {
+  width: 1.6rem;
+  height: 1.6rem;
+  color: var(--color-dark);
+}
+@media (min-width: 768px) {
+  .star {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.photoFrame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 400 / 365;
+}
+@media (min-width: 768px) {
+  .photoFrame {
+    aspect-ratio: 976 / 688;
+  }
+}
+
+.photoInner {
+  position: absolute;
+  left: 0;
+  top: -15%;
+  width: 100%;
+  height: 130%;
+}
+
+.photoImg {
+  object-fit: cover;
+}
