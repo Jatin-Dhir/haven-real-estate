@@ -1,5 +1,7 @@
 # HAVEN — real-estate marketing site (Next.js 15)
 
+**Live preview:** https://jatin-dhir.github.io/haven-real-estate/ (GitHub Pages, redeploys on every push to `main`)
+
 A from-scratch rebuild of the structure, layout, and motion language of a premium real-estate
 marketing site, with **dummy, fully editable content**. Stack: Next.js 15 (App Router) · TypeScript ·
 CSS Modules · GSAP 3 (ScrollTrigger, SplitText, DrawSVG) · Lenis smooth scroll · Swiper · Radix Dialog.
@@ -31,6 +33,17 @@ services, blog cards, footer, and the three modal forms. Components never hard-c
 
 Every route linked from the nav/footer resolves to a placeholder page (`src/app/[...slug]/page.tsx`)
 until you add real pages (e.g. `src/app/search/page.tsx`).
+
+## Deploying
+
+- **GitHub Pages** (current preview): `.github/workflows/deploy.yml` builds a static export on every push to
+  `main` with `STATIC_EXPORT=true` and `NEXT_PUBLIC_BASE_PATH=/<repo-name>`, then publishes `out/`.
+  Local equivalent: `STATIC_EXPORT=true NEXT_PUBLIC_BASE_PATH=/haven-real-estate npm run build`
+  (in Git Bash prefix with `MSYS_NO_PATHCONV=1`). Placeholder routes are pre-rendered from every internal
+  link in `site.ts`; new links need a rebuild.
+- **Vercel / Node hosting**: plain `npm run build && npm start` — no env vars needed; the catch-all route then
+  serves any path on demand.
+- Local asset paths (`/media/...`) are prefixed automatically via `src/lib/paths.ts`; `<Link>` handles routes.
 
 ## Where things live
 
